@@ -1,0 +1,310 @@
+/* Styles généraux */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: white;
+    padding: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.input-container .button {
+    padding: 0.5em 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-container .button:hover {
+    background-color: #0056b3;
+}
+
+#taskInput,
+#taskDateTime,
+#taskCategory,
+#searchInput {
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    flex: 1;
+}
+
+#taskDateTime {
+    flex: 0 0 250px;
+}
+
+.view-switch {
+    margin-bottom: 1em;
+}
+
+.view-switch .button,
+#viewToggleButton {
+    padding: 0.5em 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.view-switch .button:hover,
+#viewToggleButton:hover {
+    background-color: #0056b3;
+}
+
+.display-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+}
+
+#calendar {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.task-list-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#taskList,
+#completedTaskList {
+    background-color: #f8f9fa;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#taskList h2,
+#completedTaskList h2 {
+    margin-bottom: 1em;
+}
+
+#taskListItems,
+#completedTaskListItems {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* Centre le texte dans chaque tâche */
+    position: relative;
+}
+
+.task-item span {
+    flex: 1;
+    margin: 0;
+}
+
+.task-item .task-checkbox {
+    margin-left: 1em; /* Espacement entre la checkbox et le texte */
+}
+
+.task-item .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.task-item .delete-button:hover {
+    background-color: #c82333;
+}
+
+.task-item.completed {
+    background-color: #d4edda;
+}
+
+.task-item.completed .delete-button {
+    background-color: #155724;
+}
+
+.countdown {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #ff0000;
+}
+
+.progress-container {
+    margin-top: 1em;
+}
+
+#progressBar {
+    height: 20px;
+    background-color: #007bff;
+    width: 0;
+    transition: width 0.3s ease;
+    border-radius: 5px;
+}
+
+#progressText {
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    color: #333;
+}
+
+/* Styles pour le pied de page */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0.5em 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1em;
+    margin-top: 0.5em;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+/* Styles spécifiques pour la version imprimable */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .container, .container * {
+        visibility: visible;
+    }
+    .container {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+/* Ajout de styles pour FullCalendar */
+#calendar {
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.fc .fc-button-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+
+/* Styles spécifiques pour le bouton d'information */
+.round-button {
+    background-color: #d0dcec; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    width: 20px; /* Largeur du bouton */
+    height: 20px; /* Hauteur du bouton */
+    border-radius: 50%; /* Pour rendre le bouton rond */
+    border: none; /* Supprimer la bordure */
+    cursor: pointer; /* Curseur indiquant que le bouton est cliquable */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.round-button:hover {
+    background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+/* Styles pour l'icône à l'intérieur du bouton */
+.round-button i {
+    font-size: 1.2em; /* Taille de l'icône */
+}
